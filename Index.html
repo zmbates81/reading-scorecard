@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Bowl Scorecard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Grandstander:wght@900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header class="game-header">
+            <h1>🏆 The Reading Bowl 🏆</h1>
+            <div class="rules-card">
+                <h2>Game Rules</h2>
+                <ol>
+                    <li>📚 <strong>Record Minutes:</strong> Write down how long you read every night (Independent or with an Adult!).</li>
+                    <li>✍️ <strong>Coach's Initials:</strong> Ask your Coach (Parent/Guardian) to initial your box.</li>
+                    <li>🌟 <strong>Friday Bonus:</strong> Record your Extra Points (Lexia Units) on Fridays.</li>
+                    <li>🏫 <strong>Team Score:</strong> Your Coach (Teacher) will collect points every Friday for the grade-level chart.</li>
+                    <li>🏅 <strong>Champion:</strong> We determine the Reading Bowl Champion on Friday (2/6) before the Big Game!</li>
+                </ol>
+                <p class="reminder">*** Bring this scorecard to school every day! ***</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button onclick="saveData()" class="btn-save">💾 Save Progress</button>
+                <button onclick="downloadJSON()" class="btn-json">📂 Download JSON</button>
+                <button onclick="clearData()" class="btn-clear">❌ Reset</button>
+            </div>
+
+            <div class="calendar-wrapper">
+                <div class="grid-header">Sun</div>
+                <div class="grid-header">Mon</div>
+                <div class="grid-header">Tue</div>
+                <div class="grid-header">Wed</div>
+                <div class="grid-header">Thu</div>
+                <div class="grid-header">Fri</div>
+                <div class="grid-header">Sat</div>
+                <div class="grid-header special">Lexia Units</div>
+
+                <div id="scorecard-grid" class="scorecard-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
