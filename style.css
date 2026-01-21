@@ -1,0 +1,222 @@
+:root {
+    --primary: #FF4081; /* Bright Pink */
+    --secondary: #00E5FF; /* Cyan */
+    --yellow: #FFEA00; /* Pop Yellow */
+    --purple: #7C4DFF;
+    --dark: #2c3e50;
+    --white: #ffffff;
+    --bg-gradient: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: var(--bg-gradient);
+    margin: 0;
+    padding: 20px;
+    color: var(--dark);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Header & Rules */
+h1 {
+    font-family: 'Grandstander', cursive;
+    text-align: center;
+    color: var(--purple);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px var(--yellow);
+}
+
+.rules-card {
+    background: var(--white);
+    border: 4px dashed var(--primary);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.rules-card h2 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+ol li {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.reminder {
+    text-align: center;
+    font-weight: bold;
+    color: var(--purple);
+    margin-top: 15px;
+    background: var(--yellow);
+    padding: 5px;
+    border-radius: 8px;
+    transform: rotate(-1deg);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: 'Fredoka', sans-serif;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-save { background: var(--secondary); color: var(--dark); }
+.btn-json { background: var(--purple); color: white; }
+.btn-clear { background: #ff6b6b; color: white; }
+
+/* Calendar Grid */
+.calendar-wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.grid-header {
+    text-align: center;
+    font-weight: bold;
+    color: var(--white);
+    background: var(--purple);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.grid-header.special {
+    background: var(--primary);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+/* The Day Card */
+.day-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.day-card:hover {
+    border-color: var(--secondary);
+    transform: scale(1.02);
+}
+
+.day-card.filled {
+    border-color: var(--primary);
+    background: #fff9fc;
+}
+
+.date-label {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: bold;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 5px;
+    font-family: 'Grandstander', cursive;
+    text-align: center;
+    font-size: 1.1rem;
+    box-sizing: border-box; /* Fixes padding issues */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    background: #f0fbff;
+}
+
+.input-min {
+    color: var(--purple);
+    font-size: 1.4rem;
+}
+
+.input-initials {
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+/* Weekly Total Column */
+.weekly-total-card {
+    background: var(--yellow);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 3px solid var(--dark);
+}
+
+.weekly-total-card label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.weekly-total-card input {
+    background: var(--white);
+    border: 3px solid var(--primary);
+    color: var(--primary);
+    font-size: 1.5rem;
+    height: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-wrapper {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+    .grid-header { display: none; } /* Hide headers on mobile stack */
+    
+    .day-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .day-card input { width: 30%; }
+}
